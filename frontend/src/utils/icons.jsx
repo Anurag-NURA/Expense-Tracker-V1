@@ -21,3 +21,6 @@ export { LuShoppingBag } from "react-icons/lu";
 export { RiBillLine } from "react-icons/ri";
 export { LuSmartphone } from "react-icons/lu";
 export { GrMultiple } from "react-icons/gr";
+
+export { LuAlertTriangle } from "react-icons/lu";
+export { IoHomeOutline } from "react-icons/io5";
