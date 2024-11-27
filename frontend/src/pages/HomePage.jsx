@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { LuArrowUpRight, LuBarChart3 } from '@icons';
+import { LuArrowUpRight, LuBarChart3, LuCreditCard } from '@icons';
 
 export const HomePage = () => {
   return (
@@ -35,7 +35,7 @@ export const HomePage = () => {
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <p className="text-zinc-600 text-sm">Total Expenses</p>
-                  <h3 className="text-2xl font-bold text-zinc-900">$1,220.00</h3>
+                  <h3 className="text-2xl font-bold text-zinc-900"><span>{'\u20B9'}</span>1,220.00</h3>
                 </div>
                 <span className="text-red-500 text-sm">-10%</span>
               </div>
@@ -45,7 +45,26 @@ export const HomePage = () => {
               </div>
             </div>
 
-
+            {/* Credit Card */}
+            <div className="absolute left-0 bottom-0 w-80 bg-emerald-100 rounded-lg p-6 transform -rotate-6">
+              <div className="flex justify-between mb-8">
+                <LuCreditCard className="h-8 w-8 text-zinc-700" />
+                <p className="text-zinc-700 font-medium">RuPay</p>
+              </div>
+              <div className="mb-6">
+                <p className="text-zinc-700 tracking-widest">**** **** **** 7602</p>
+              </div>
+              <div className="flex justify-between">
+                <div>
+                  <p className="text-xs text-zinc-600 mb-1">CARD HOLDER</p>
+                  <p className="text-zinc-700">Jignesh Modi</p>
+                </div>
+                <div>
+                  <p className="text-xs text-zinc-600 mb-1">EXPIRES</p>
+                  <p className="text-zinc-700">04/25</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Right Column */}

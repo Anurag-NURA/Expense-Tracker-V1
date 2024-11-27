@@ -57,7 +57,7 @@ export const ExpensesPage = () => {
   const totalBalance = totalIncome - totalExpense;
 
   return (
-    <section className='mt-20 min-h-[69vh] max-w-full p-10 flex flex-col custom_lg:grid grid-cols-3 grid-rows-3 justify-center items-center gap-10 overflow-x-hidden'>
+    <section className='bg-gray-50 mt-20 min-h-[69vh] max-w-full p-10 flex flex-col custom_lg:grid grid-cols-3 grid-rows-3 justify-center items-center gap-10 overflow-x-hidden'>
 
       <div id="expenses_table" className="max-h-100 w-full col-span-2 row-span-3 overflow-x-auto">
         {isLoading && <Spinner />}

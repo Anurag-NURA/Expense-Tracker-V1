@@ -6,7 +6,7 @@ import './index.css';
 import store from './store';
 import { Provider } from 'react-redux';
 import { App } from './App.jsx';
-import { HomePage, ExpensesPage, ProfilePage, NotFoundPage } from '@pages';
+import { HomePage, ExpensesPage, ProfilePage, ReportPage, NotFoundPage } from '@pages';
 import { PrivateRoute } from '@components';
 import { Login, Register } from '@screens';
 
@@ -34,12 +34,19 @@ const router = createBrowserRouter([
         index: false,
         path: '/profile',
         element: <PrivateRoute />,
-        children: [
-          {
-            path: '',
-            element: <ProfilePage />
-          }
-        ]
+        children: [{
+          path: '',
+          element: <ProfilePage />
+        }]
+      },
+      {
+        index: false,
+        path: '/report',
+        element: <PrivateRoute />,
+        children: [{
+          path: '',
+          element: <ReportPage />
+        }]
       }
     ]
   },
