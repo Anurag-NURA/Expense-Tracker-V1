@@ -15,3 +15,4 @@ export { AddExpense } from './ExpenseActionButtons/AddExpense.jsx';
 export { UpdateExpense } from './ExpenseActionButtons/UpdateExpense.jsx';
 export { DeleteExpense } from './ExpenseActionButtons/DeleteExpense.jsx';
 export { ExpenseComparison } from './UI/ExpenseTrend.jsx';
+export { DoughnutChart } from './UI/DoughnutChart.jsx';
