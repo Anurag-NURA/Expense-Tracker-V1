@@ -10,6 +10,11 @@ const links = [
     id: '2',
     name: 'Expenses',
     link: '/expenses'
+  },
+  {
+    id: '3',
+    name: 'Report',
+    link: '/report'
   }
 ]
 

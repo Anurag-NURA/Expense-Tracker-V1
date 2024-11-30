@@ -13,3 +13,14 @@ export { CiCircleChevDown } from "react-icons/ci";
 export { LuBarChart3 } from "react-icons/lu";
 export { LuCreditCard } from "react-icons/lu";
 export { LuArrowUpRight } from "react-icons/lu";
+
+export { LuUtensils } from "react-icons/lu";
+export { LuCar } from "react-icons/lu";
+export { LuShoppingCart } from "react-icons/lu";
+export { LuShoppingBag } from "react-icons/lu";
+export { RiBillLine } from "react-icons/ri";
+export { LuSmartphone } from "react-icons/lu";
+export { GrMultiple } from "react-icons/gr";
+
+export { LuAlertTriangle } from "react-icons/lu";
+export { IoHomeOutline } from "react-icons/io5";

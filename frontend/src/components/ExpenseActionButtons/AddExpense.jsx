@@ -8,8 +8,8 @@ import { useAddExpenseMutation } from "../../slices/expensesApiSlice";
 const initialState = {
   title: '',
   amount: '',
-  transactionFlow: 'income',
-  category: 'food'
+  transactionFlow: 'Income',
+  category: 'Food'
 }
 
 const reducer = (state, action) => {
