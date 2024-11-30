@@ -44,6 +44,7 @@ export const ReportPage = () => {
     return percentage.toFixed(2) + "%";
   }
 
+  //make this server side component
   const category = [
     { id: 1, name: 'Food', icon: <LuUtensils />, color: 'bg-green-500', totalExpense: calculateCategoryTotal('Food') },
     { id: 2, name: 'Transport', icon: <LuCar />, color: 'bg-purple-500', totalExpense: calculateCategoryTotal('Transport') },
@@ -87,12 +88,12 @@ export const ReportPage = () => {
           <div className="bg-white overflow-hidden shadow rounded-lg w-[25rem]">
             <div className="p-5">
               <div className="flex items-center">
-                <div className="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                <div className="flex-shrink-0 bg-green-500 rounded-md p-3">
                   <IoWalletOutline className="h-6 w-6 text-white" />
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
-                    <dt className="text-sm font-medium text-gray-500 truncate">Total Expenses</dt>
+                    <dt className="text-sm font-medium text-gray-500 truncate">Total Income</dt>
                     <dd className="text-3xl font-semibold text-gray-900">
                       <span>{'\u20B9'}</span>{totalIncome}
                     </dd>

@@ -15,6 +15,8 @@ export const DoughnutChart = ({ data, labels }) => {
               '#FFCE56',
               '#4BC0C0',
               '#9966FF',
+              '#C70039',
+              '#fe9301'
             ],
             hoverBackgroundColor: [
               '#FF6384',
@@ -22,6 +24,8 @@ export const DoughnutChart = ({ data, labels }) => {
               '#FFCE56',
               '#4BC0C0',
               '#9966FF',
+              '#C70039',
+              '#fe9301'
             ],
           },
         ],
