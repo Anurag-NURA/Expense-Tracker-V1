@@ -24,10 +24,13 @@ const __dirname = path.dirname(__filename);
 app.use(
   cors({
     origin: "https://expense-tracker-v1-sand.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],    
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   }),
 );
+
+app.options('*', cors());
 
 app.use(cookieParser());
 app.use(express.json()); //use to parse json data
