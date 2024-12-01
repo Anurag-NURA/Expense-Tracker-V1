@@ -11,13 +11,13 @@ const protect = async (req, res, next) => {
 
     if (token) {
       try {
-        const secret = process.env.JWT_SECRET;
+        const secretKey = process.env.JWT_SECRET;
 
         if (!secretKey) {
           throw new Error("JWT_SECRET is not defined in environment variables");
         }
 
-        const decoded = jwt.verify(token, secret);
+        const decoded = jwt.verify(token, secretKey);
         //token is decoded by passing token and the secret key as arguments in the jwt.verify function
 
         req.user = await User.findById(decoded.userId).select("-password");
