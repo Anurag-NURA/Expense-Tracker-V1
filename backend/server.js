@@ -23,7 +23,7 @@ const __dirname = path.dirname(__filename);
 //setup for cors
 app.use(
   cors({
-    origin: "https://expense-tracker-v1-sand.vercel.app",
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],    
     credentials: true,
   }),
