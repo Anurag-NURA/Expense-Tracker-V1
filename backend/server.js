@@ -20,12 +20,15 @@ const port = process.env.PORT || 5000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+//setup for cors
 app.use(
   cors({
     origin: process.env.FRONTEND_URL,
-    credentials: true, // If you're using cookies or Authorization headers
+    credentials: true,
   }),
 );
+app.options("*", cors());
+
 app.use(cookieParser());
 app.use(express.json()); //use to parse json data
 app.use(express.urlencoded({ extended: true })); //use to parse form data
@@ -33,18 +36,9 @@ app.use(express.urlencoded({ extended: true })); //use to parse form data
 app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes);
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-//   app.get("*", (req, res) =>
-//     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html")),
-//   );
-// } else {
-//   //it means we are in development mode
 app.get("/", (req, res) => {
   res.send("Server is ready");
 });
-// }
 
 app.use(notFound);
 app.use(errorHandler);
