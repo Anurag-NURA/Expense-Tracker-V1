@@ -1,29 +1,16 @@
 {
-  "version": 2,
-  "builds": [
+  "projects": [
     {
-      "src": "backend/server.js",
-      "use": "@vercel/node",
-      "config": {
-        "port": "$PORT"
-      }
-    },
-    {
-      "src": "frontend/package.json",
+      "src": "frontend/",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "buildCommand": "bun build",
+        "outputDirectory": "dist"
       }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/backend/server.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "/frontend/dist/$1"
+      "src": "backend/",
+      "use": "@vercel/node"
     }
   ]
 }
