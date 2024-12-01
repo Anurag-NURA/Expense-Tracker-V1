@@ -9,7 +9,7 @@
     "build:all": "bun run build:frontend && bun run build:backend",
     "build:frontend": "bun --cwd frontend build",
     "build:backend": "echo 'No build needed for backend'",
-    "start": "bun --cwd backend index.js"
+    "start": "bun backend/server.js"
   },
   "engines": {
     "bun": "latest"

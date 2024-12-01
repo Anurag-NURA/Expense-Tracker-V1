@@ -1,16 +1,14 @@
 {
-  "projects": [
+  "builds": [
     {
-      "src": "frontend/",
-      "use": "@vercel/static-build",
-      "config": {
-        "buildCommand": "bun build",
-        "outputDirectory": "dist"
-      }
-    },
-    {
-      "src": "backend/",
+      "src": "backend/server.js",
       "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/server.js"
     }
   ]
 }
