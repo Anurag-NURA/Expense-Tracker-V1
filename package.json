@@ -9,7 +9,7 @@
     "server": "nodemon -L backend/server.js",
     "client": "npm run dev --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "bun install && bun install --prefix frontend && bun backend/server.js"
+    "build": "bun install && bun install -w frontend && bun backend/server.js"
   },
   "keywords": [],
   "author": "",
