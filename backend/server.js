@@ -23,10 +23,10 @@ const __dirname = path.dirname(__filename);
 //setup for cors
 app.use(
   cors({
-    origin: "https://expense-tracker-v1-sand.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
+    "origin": "https://expense-tracker-v1-sand.vercel.app",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204
   }),
 );
 
