@@ -14,7 +14,9 @@ connectDB();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors({origin: true}));
+app.use(cors({
+ origin: "*"
+}));
 
 //setup for cors
 // app.use(
