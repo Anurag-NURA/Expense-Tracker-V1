@@ -26,7 +26,7 @@ app.use(cors({origin: true}));
 //   }),
 // );
 
-// app.options('*', cors());
+ app.options('*', cors());
 
 app.use(cookieParser());
 app.use(express.json()); //use to parse json data
