@@ -14,9 +14,12 @@ connectDB();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors({
- origin: "*"
-}));
+const corsOptions = {
+  origin: process.env.ORIGIN_URI, // Specify the frontend URL here
+  credentials: true, // Allow credentials (cookies, etc.)
+};
+
+app.use(cors(corsOptions));
 
 //setup for cors
 // app.use(
@@ -28,13 +31,15 @@ app.use(cors({
 //   }),
 // );
 
- app.options('*', cors());
+app.options("*", cors());
 
 app.use(cookieParser());
 app.use(express.json()); //use to parse json data
 app.use(express.urlencoded({ extended: true })); //use to parse form data
 
-app.use("/api/all", (req, res) => res.status(200).json({ message: "API is working", cors: "enabled" }))
+app.use("/api/all", (req, res) =>
+  res.status(200).json({ message: "API is working", cors: "enabled" }),
+);
 
 app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes);
