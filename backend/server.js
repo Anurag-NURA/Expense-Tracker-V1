@@ -1,8 +1,6 @@
 import cors from "cors";
-import path from "path";
 import express from "express";
 import dotenv from "dotenv";
-import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
 
 import connectDB from "./config/db.js";
@@ -16,25 +14,25 @@ connectDB();
 const app = express();
 const port = process.env.PORT || 5000;
 
-//Define __dirname for ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+app.use(cors());
 
 //setup for cors
-app.use(
-  cors({
-    "origin": "https://expense-tracker-v1-sand.vercel.app",
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-    "preflightContinue": false,
-    "optionsSuccessStatus": 204
-  }),
-);
+// app.use(
+//   cors({
+//     "origin": "https://expense-tracker-v1-sand.vercel.app",
+//     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     "preflightContinue": false,
+//     "optionsSuccessStatus": 200
+//   }),
+// );
 
-app.options('*', cors());
+// app.options('*', cors());
 
 app.use(cookieParser());
 app.use(express.json()); //use to parse json data
 app.use(express.urlencoded({ extended: true })); //use to parse form data
+
+app.use("/api/all", (req, res) => res.status(200).json({ message: "API is working", cors: "enabled" }))
 
 app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes);
