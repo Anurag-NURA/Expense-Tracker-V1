@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
   //baseUrl: "http://localhost:5000",
-  baseUrl: "https://expense-tracker-v1-server.vercel.app/",
+  baseUrl: import.meta.env.VITE_API_URL,
 });
 
 export const apiSlice = createApi({
