@@ -21,16 +21,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-//setup for cors
-// app.use(
-//   cors({
-//     "origin": "https://expense-tracker-v1-sand.vercel.app",
-//     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     "preflightContinue": false,
-//     "optionsSuccessStatus": 200
-//   }),
-// );
-
 app.options("*", cors());
 
 app.use(cookieParser());
