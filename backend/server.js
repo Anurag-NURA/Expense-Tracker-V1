@@ -19,9 +19,11 @@ const corsOptions = {
   credentials: true, // Allow credentials (cookies, etc.)
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
-app.options("*", cors());
+//app.use(cors(corsOptions));
+
+//app.options("*", cors());
 
 app.use(cookieParser());
 app.use(express.json()); //use to parse json data
