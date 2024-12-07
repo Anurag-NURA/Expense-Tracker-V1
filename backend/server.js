@@ -14,16 +14,12 @@ connectDB();
 const app = express();
 const port = process.env.PORT || 5000;
 
-const corsOptions = {
-  origin: process.env.ORIGIN_URI, // Specify the frontend URL here
-  credentials: true, // Allow credentials (cookies, etc.)
-};
-
-app.use(cors());
-
-//app.use(cors(corsOptions));
-
-//app.options("*", cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://your-production-domain.com'], // Add your allowed origins
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(cookieParser());
 app.use(express.json()); //use to parse json data
