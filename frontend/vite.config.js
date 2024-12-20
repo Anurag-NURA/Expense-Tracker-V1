@@ -6,7 +6,6 @@ import path from "path";
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 3000,
     proxy: {
       "/api": {
         target: "https://expense-tracker-v1-9etw.onrender.com",
