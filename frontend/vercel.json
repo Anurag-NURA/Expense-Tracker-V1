@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://expense-tracker-v1-sand.vercel.app"
+          "value": "https://expense-tracker-v1-orcin.vercel.app/"
         },
         {
           "key": "Access-Control-Allow-Methods",
