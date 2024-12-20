@@ -15,7 +15,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://your-production-domain.com'], // Add your allowed origins
+  origin: ['http://localhost:5173', 'http://localhost:3000' , process.env.ALLOWED_ORIGIN], // Add your allowed origins
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
