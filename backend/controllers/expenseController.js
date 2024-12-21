@@ -1,6 +1,6 @@
 import Expense from "../models/expenseModel.js";
 
-// @description    Create new expense 
+// @description    Create new expense
 // @route          POST: /api/expenses
 // @access         Private
 const createExpense = async (req, res, next) => {
@@ -17,7 +17,7 @@ const createExpense = async (req, res, next) => {
       title,
       amount,
       category,
-      transactionFlow
+      transactionFlow,
     });
 
     if (expense) {
@@ -36,11 +36,8 @@ const createExpense = async (req, res, next) => {
 // @access         Private
 const getExpenses = async (req, res, next) => {
   try {
-
-    const expenses =
-      await Expense
-        .find({ user: req.user._id })//only get expenses of the logged in user
-        .sort({ createdAt: -1 });//latest expenses will be shown first
+    const expenses = await Expense.find({ user: req.user._id }) //only get expenses of the logged in user
+      .sort({ createdAt: -1 }); //latest expenses will be shown first
 
     if (!expenses) {
       res.status(404);
@@ -60,7 +57,7 @@ const getExpenseById = async (req, res, next) => {
   try {
     const expense = await Expense.findOne({
       _id: req.params.id,
-      user: req.user._id // Ensures expense belongs to user
+      user: req.user._id, // Ensures expense belongs to user
     });
 
     if (!expense) {
@@ -69,12 +66,10 @@ const getExpenseById = async (req, res, next) => {
     }
 
     res.status(200).json(expense);
-
   } catch (error) {
     next(error);
   }
 };
-
 
 //@description    Update single expense
 // @route          PUT: /api/expenses/:id
@@ -83,15 +78,15 @@ const updateExpenseById = async (req, res, next) => {
   try {
     const expense = await Expense.findOne({
       _id: req.params.id,
-      user: req.user._id
+      user: req.user._id,
     });
 
     if (expense) {
-
       expense.title = req.body.title || expense.title;
       expense.amount = req.body.amount || expense.amount;
       expense.category = req.body.category || expense.category;
-      expense.transactionFlow = req.body.transactionFlow || expense.transactionFlow;
+      expense.transactionFlow =
+        req.body.transactionFlow || expense.transactionFlow;
 
       //save the updated expense
       const updatedExpense = await expense.save();
@@ -111,7 +106,7 @@ const updateExpenseById = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-}
+};
 
 //@description    Delete single expense
 // @route          DELETE: /api/expenses/:id
@@ -120,7 +115,7 @@ const deleteExpenseById = async (req, res, next) => {
   try {
     const expense = await Expense.findOne({
       _id: req.params.id,
-      user: req.user._id
+      user: req.user._id,
     });
 
     if (expense) {
@@ -133,7 +128,7 @@ const deleteExpenseById = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-}
+};
 
 //@description    Get filtered expenses
 // @route          GET: /api/expenses/filter
@@ -171,5 +166,5 @@ export {
   getExpenseById,
   updateExpenseById,
   deleteExpenseById,
-  getFilteredExpenses
+  getFilteredExpenses,
 };

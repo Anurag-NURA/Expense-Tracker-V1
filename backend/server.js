@@ -14,13 +14,16 @@ connectDB();
 const app = express();
 const port = process.env.PORT;
 
-app.use(cors({
-  origin: process.env.CLIENT_URL,
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  optionsSuccessStatus: 200
-}));
+app.set("trust proxy", 1);
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 200,
+  }),
+);
 
 app.use(cookieParser());
 app.use(express.json()); //use to parse json data
