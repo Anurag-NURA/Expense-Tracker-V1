@@ -15,11 +15,6 @@ const errorHandler = (error, req, res, next) => {
     message = "Resource not found";
   }
 
-  if (error.status === 401) {
-    statusCode = 401;
-    message = "Abey kon hai be";
-  }
-
   res.status(statusCode).json({
     message: message,
     stack: process.env.NODE_ENV === "production" ? null : error.stack,

@@ -14,6 +14,8 @@ connectDB();
 const app = express();
 const port = process.env.PORT;
 
+app.set("trust proxy", 1);
+
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
@@ -24,7 +26,6 @@ app.use(
   }),
 );
 
-app.set("trust proxy", 1);
 app.use(cookieParser());
 app.use(express.json()); //use to parse json data
 app.use(express.urlencoded({ extended: true })); //use to parse form data
