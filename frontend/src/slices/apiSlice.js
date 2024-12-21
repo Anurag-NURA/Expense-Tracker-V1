@@ -2,15 +2,15 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: import.meta.env.VITE_API_URL,
-  prepareHeaders: (headers, { getState }) => {
-    const token = getState().auth.token;
-    if (token) {
-      headers.set('Authorization', `Bearer ${token}`);
+  mode: 'cors',
+  credentials: 'include',
+  prepareHeaders: (headers) => {
+    if (localStorage.token) {
+      headers.set("authorization", `Bearer ${localStorage.token}`);
     }
-    headers.set('Content-Type', 'application/json');
+    headers.set("Accept", "application/json");
     return headers;
   },
-  credentials: "include",
 });
 
 export const apiSlice = createApi({

@@ -58,12 +58,20 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />
   }
-]);
+], {
+  future: {
+    v7_relativeSplatPath: true,
+    v7_fetcherPersist: true,
+    v7_normalizeFormMethod: true,
+    v7_partialHydration: true,
+    v7_skipActionErrorRevalidation: true,
+  }
+});
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <StrictMode>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} future={{ v7_startTransition: true }} />
     </StrictMode>
   </Provider>
 );

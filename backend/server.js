@@ -12,22 +12,19 @@ dotenv.config();
 connectDB();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 
 app.use(cors({
-  origin: [`${process.env.ALLOWED_ORIGIN}`], // Add your allowed origins
+  origin: process.env.CLIENT_URL,
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  optionsSuccessStatus: 200
 }));
 
 app.use(cookieParser());
 app.use(express.json()); //use to parse json data
 app.use(express.urlencoded({ extended: true })); //use to parse form data
-
-app.use("/api/all", (req, res) =>
-  res.status(200).json({ message: "API is working", cors: "enabled" }),
-);
 
 app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes);
