@@ -9,10 +9,17 @@ const errorHandler = (error, req, res, next) => {
   stating that there is an error*/
   let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   let message = error.message;
+
   //Specific error from mongoose known as CastError, it also has a kind property
   if (error.name === "CastError" && error.kind === "ObjectId") {
     statusCode = 404;
     message = "Resource not found";
+  }
+
+  //Handle 401 unauthorized error
+  if (error.status === 401) {
+    statusCode = 401;
+    message = "Unauthorized Access bhai";
   }
 
   res.status(statusCode).json({
