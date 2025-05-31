@@ -11,6 +11,7 @@ import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 dotenv.config();
 connectDB();
 
+//start the server
 const app = express();
 const port = process.env.PORT;
 
@@ -27,9 +28,12 @@ app.use(
 );
 
 app.use(cookieParser());
+
+//middlewares
 app.use(express.json()); //use to parse json data
 app.use(express.urlencoded({ extended: true })); //use to parse form data
 
+//routes
 app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes);
 
